@@ -1,0 +1,40 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    stack<char> p; // stog za pohranu slova
+    string s;
+
+    cout << "Unesi slova i # za brisanje: ";
+    cin >> s;
+
+    for (char c : s) {
+        if (c == 'a' || c == 'b' || c == 'c') {
+            p.push(c); // dodaj slovo na stog
+        }
+        else if (c == '#') {
+            if (!p.empty()) {
+                p.pop(); // ukloni posljednje uneseno slovo
+            }
+        }
+    }
+
+    // Ispis rezultata
+    cout << "Rezultat: ";
+    stack<char> temp;
+    // prebacimo u temp da bi mogli ispisati u pravom redoslijedu
+    while (!p.empty()) {
+        temp.push(p.top());
+        p.pop();
+    }
+    while (!temp.empty()) {
+        cout << temp.top();
+        temp.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+
