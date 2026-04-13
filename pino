@@ -1,0 +1,50 @@
+#include <iostream>
+#include <stack>
+#include <string>
+using namespace std;
+
+int main() {
+    stack<char> stog;
+    string s;
+
+    cout << "Unesi izraz: ";
+    cin >> s;
+
+    int ispravno = 1; // 1 = TOCNO, 0 = NETOCNO
+
+    for (char c : s) { 
+        if (c == '(' || c == '{' || c == '[' ) {
+            stog.push(c);
+        }
+        else {
+            if (stog.empty()) {
+                ispravno = 0;
+                break;
+            }
+
+            char vrh = stog.top();
+            stog.pop();
+
+            if ((c == ')' && vrh != '(') ||
+                (c == '}' && vrh != '{') ||
+                (c == ']' && vrh != '[')) {
+                ispravno = 0;
+                break;
+            }
+        }
+    }
+
+    // ako je ostalo nešto u stacku → nije ispravno
+    if (!stog.empty()) {
+        ispravno = 0;
+    }
+
+    if (ispravno == 1) {
+        cout << "TOCNO";
+    }
+    else {
+        cout << "NETOCNO";
+    }
+
+    return 0;
+}
