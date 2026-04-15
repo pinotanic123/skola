@@ -1,0 +1,35 @@
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+char prvoSlovo(const string& ime) {
+    if (!ime.empty()) {
+        return ime[0];
+    }
+    return '\0'; // Return null character if string is empty
+}
+
+int main() {
+    queue<string> t;            
+    string ime;
+    // Unos imena dok se ne unese "kraj"
+
+        while (true) {
+            cout << "Unesite ime (ili 'kraj' za završetak): ";
+            cin >> ime;
+            if (ime == "kraj") {
+                break;
+            }
+            t.push(ime);
+        }
+
+        // Ispis imena i njihovih prvih slova
+        cout << "\nImena i njihova prva slova:\n";
+        while (!t.empty()) {
+            string trenutnoIme = t.front();
+            t.pop();
+            cout << trenutnoIme << " - " << prvoSlovo(trenutnoIme) << endl;
+        }
+        return 0;
+    }
