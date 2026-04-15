@@ -1,0 +1,38 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+
+bool jeTroznamenkast(int broj) {
+    return broj >= 100 && broj <= 999;
+}
+
+int main() {
+
+    int n;
+    cout << "Napisite koliko brojeva zelite unijeti: ";
+    cin >> n;
+
+    queue<int> pa;
+
+    // unos brojeva
+    for (int j = 0; j < n; j++) {
+        int broj;
+        cout << "Unesite broj: ";
+        cin >> broj;
+        pa.push(broj);
+    }
+
+    cout << "Troznamenkasti brojevi: ";
+
+    // obrada i ispis
+    while (!pa.empty()) {
+        int broj = pa.front();
+        pa.pop();
+
+        if (jeTroznamenkast(broj)) {
+            cout << broj << " ";
+        }
+    }
+
+    return 0;
+}
