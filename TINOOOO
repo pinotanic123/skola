@@ -1,0 +1,38 @@
+#include <queue>
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    queue<char> p;
+    string s;
+
+    cout << "Upisi neke znakove: ";
+    cin >> s;
+
+    for (char c : s) {
+        if (!p.empty() && p.front() == c) {
+            p.pop();
+        }
+        else {
+            p.push(c);
+        }
+    }
+
+  
+    if (p.empty()) {
+        cout << "Svi znakovi imaju par." << endl;
+    }
+    else {
+        cout << "Znakovi koji su ostali: ";
+
+        while (!p.empty()) {
+            cout << p.front();
+            p.pop();
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
