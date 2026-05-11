@@ -1,0 +1,48 @@
+#include <iostream>
+#include <queue>
+#include <string>
+
+using namespace std;
+
+int main() {
+    cout << "ULAZ:" << endl;  // Prompt input
+    int n;
+    cin >> n;
+
+    queue<string> red;
+
+    string prviIme = "PRAZNO"; // To store the first name for output
+    int brojElemenata = 0;     // To store the number of elements
+
+    for (int i = 0; i < n; i++) {
+        string naredba;
+        cin >> naredba;
+
+        if (naredba == "DODAJ") {
+            string ime;
+            cin >> ime;
+            red.push(ime);
+        }
+        else if (naredba == "OBRADI") {
+            if (!red.empty()) {
+                red.pop();
+            }
+        }
+        else if (naredba == "PRVI") {
+            if (!red.empty()) {
+                prviIme = red.front();
+            }
+            else {
+                prviIme = "PRAZNO";
+            }
+        }
+        else if (naredba == "BROJ") {
+            brojElemenata = red.size();
+        }
+    }
+
+    // Output everything on one line
+    cout << prviIme << " " << brojElemenata << endl;
+
+    return 0;
+}
