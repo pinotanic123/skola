@@ -1,0 +1,106 @@
+#include <iostream>
+#include <list>
+#include <string>
+
+using namespace std;
+
+// Funkcija za provjeru je li znak samoglasnik
+bool jeSamoglasnik(char c) {
+    c = tolower(c);
+
+    return (c == 'a' || c == 'e' || c == 'i' ||
+        c == 'o' || c == 'u');
+}
+
+int main() {
+    string rijec;
+
+    cout << "Unesite rijec: ";
+    cin >> rijec;
+
+   
+    list<char> lista1;
+
+    for (char c : rijec) {
+        lista1.push_back(c);
+    }
+
+    
+    list<char> lista2;
+
+    for (char c : lista1) {
+        if (jeSamoglasnik(c)) {
+            lista2.push_back(c);
+        }
+    }
+
+ 
+    list<char> lista3;
+
+    for (char c : lista1) {
+        if (!jeSamoglasnik(c)) {
+            lista3.push_back(c);
+        }
+    }
+
+   
+    cout << "\nVelicina prve liste: " << lista1.size() << endl;
+    cout << "Velicina druge liste: " << lista2.size() << endl;
+    cout << "Velicina trece liste: " << lista3.size() << endl;
+
+    
+    lista1.push_front('<');
+    lista1.push_back('>');
+
+   
+    cout << "\nLista1 unaprijed: ";
+    for (char c : lista1) {
+        cout << c;
+    }
+
+   
+    cout << "\nLista1 unatrag: ";
+    for (auto it = lista1.rbegin(); it != lista1.rend(); ++it) {
+        cout << *it;
+    }
+
+    
+    lista1.front() = '[';
+    lista1.back() = ']';
+
+    cout << "\n\nLista1 nakon zamjene: ";
+    for (char c : lista1) {
+        cout << c;
+    }
+
+    
+    cout << "\n\nNaizmjenican ispis:\n";
+
+    auto it2 = lista2.begin();
+    auto it3 = lista3.begin();
+
+    while (it2 != lista2.end() || it3 != lista3.end()) {
+
+        
+        if (it2 != lista2.end()) {
+            cout << *it2;
+            ++it2;
+        }
+        else {
+            cout << "_";
+        }
+
+        
+        if (it3 != lista3.end()) {
+            cout << *it3;
+            ++it3;
+        }
+        else {
+            cout << "_";
+        }
+    }
+
+    cout << endl;
+
+    return 0;
+}
