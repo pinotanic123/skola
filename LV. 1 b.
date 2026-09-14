@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+string SigurnosnaZona(int xmin, int xmax, int ymin, int ymax, int x, int y) {
+    if (x < xmin || x > xmax || y < ymin || y > ymax) {
+        return "Izvan sigurnosne zone";
+    } else {
+        return "Unutar sigurnosne zone";
+	}
+}
+
+int main() {
+	int xmin, xmax, ymin, ymax, x, y;   
+	cin >> xmin >> xmax >> ymin >> ymax >> x >> y;
+	cout << SigurnosnaZona(xmin, xmax, ymin, ymax, x, y) << endl;   
+      
+    return 0;
+}
