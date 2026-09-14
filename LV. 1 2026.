@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+string prolazi(int b1, int b2, int b3) {
+    int ukupno = b1 + b2 + b3;
+
+    if (ukupno >= 200 && b1 >= 40 && b2 >= 40 && b3 >= 40)
+        return "PROLAZI";
+    else
+        return "NE PROLAZI";
+}
+
+int main() {
+    cout << "Unesi broj bodova iz zadataka " << endl;
+    int b1, b2, b3;
+    cin >> b1 >> b2 >> b3;
+
+    cout << prolazi(b1, b2, b3);
+    return 0;
+}
