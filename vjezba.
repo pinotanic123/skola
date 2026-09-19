@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+string bodovi(int m, int f, int i) {
+    double prosjek = (m + f + i) / 3.0;
+
+    int min_bod = m;
+    if (f < min_bod) min_bod = f;
+    if (i < min_bod) min_bod = i;
+
+    int max_bod = m;
+    if (f > max_bod) max_bod = f;
+    if (i > max_bod) max_bod = i;
+
+    cout << "Prosjek je: " << prosjek << endl;
+    cout << "Najmanji broj bodova je: " << min_bod << endl;
+    cout << "Najveci broj bodova je: " << max_bod << endl;
+
+    if (prosjek < 80 && m >= 90) {
+        return "Ucenik prolazi (bonus)";
+    }
+
+    if (prosjek >= 75 && min_bod >= 40 && max_bod >= min_bod + 25) {
+        return "Ucenik prolazi";
+    }
+    else {
+        return "Ucenik pada";
+    }
+}
+
+int main() {
+    int m, f, i;
+
+    cout << "Upisi bodove ucenika:" << endl;
+    cin >> m >> f >> i;
+
+    cout << bodovi(m, f, i) << endl;
+}
