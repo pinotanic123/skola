@@ -25,9 +25,9 @@ int main() {
     cin >> a2.registracija;
 
  
-    cout << "Unesi godinu za treæi auto: ";
+    cout << "Unesi godinu za treÃ¦i auto: ";
     cin >> a3.godina;
-    cout << "Unesi registraciju za treæi auto: ";
+    cout << "Unesi registraciju za treÃ¦i auto: ";
     cin >> a3.registracija;
 
  
