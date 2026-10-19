@@ -1,0 +1,32 @@
+//LV4 1 PAKETI U SORTIRNICI
+
+#include <iostream>
+using namespace std;
+
+int brojPaketa(int mase[], int n, int L, int D) {
+    int broj = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (mase[i] >= L && mase[i] <= D) {
+            broj++;
+        }
+    }
+
+    return broj;
+}
+
+int main() {
+    int mase1[] = { 1200, 750, 1800, 950, 2100, 1300 };
+    cout << "Rezultat 1: " << brojPaketa(mase1, 6, 900, 1800)
+         << " (Ocekivano: 4)" << endl;
+
+    int mase2[] = { 500, 600, 700, 800 };
+    cout << "Rezultat 2: " << brojPaketa(mase2, 4, 900, 1800)
+         << " (Ocekivano: 0)" << endl;
+
+    int mase3[] = { 900, 1800, 901, 1799 };
+    cout << "Rezultat 3: " << brojPaketa(mase3, 4, 900, 1800)
+         << " (Ocekivano: 4)" << endl;
+
+    return 0;
+}
