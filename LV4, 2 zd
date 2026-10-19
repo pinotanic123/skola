@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int brojPaketa(int mase[], int n, int L, int D) {
+    int broj = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (mase[i] >= L && mase[i] <= D) {
+            broj++;
+        }
+    }
+
+    return broj;
+}
+
+int main() {
+    int n, L, D;
+    int mase[100];
+
+    cout << "Unesi broj paketa: ";
+    cin >> n;
+
+    cout << "Unesi mase paketa: ";
+    for (int i = 0; i < n; i++) {
+        cin >> mase[i];
+    }
+
+    cout << "Unesi donju granicu L: ";
+    cin >> L;
+
+    cout << "Unesi gornju granicu D: ";
+    cin >> D;
+
+    cout << "Broj paketa za brzu traku: "
+        << brojPaketa(mase, n, L, D) << endl;
+
+    return 0;
+}
