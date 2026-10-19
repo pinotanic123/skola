@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int odredi_prolaz(int b1, int b2, int b3, int ukupno) {
+    if (ukupno >= 200 && b1 >= 40 && b2 >= 40 && b3 >= 40) {
+        return 1; 
+    }
+    else {
+        return 0; 
+    }
+}
+
+int main() {
+    int bodovi_1, bodovi_2, bodovi_3;
+
+    cout << "Unesite bodove za 1. zadatak: ";
+    cin >> bodovi_1;
+    cout << "Unesite bodove za 2. zadatak: ";
+    cin >> bodovi_2;
+    cout << "Unesite bodove za 3. zadatak: ";
+    cin >> bodovi_3;
+
+    int ukupno_bodova = bodovi_1 + bodovi_2 + bodovi_3;
+
+    cout << "REZULTAT" << endl;
+    cout << "Ukupan broj bodova: " << ukupno_bodova << endl;
+
+    int rezultat = odredi_prolaz(bodovi_1, bodovi_2, bodovi_3, ukupno_bodova);
+
+    if (rezultat == 1) {
+        cout << "Odluka: Ucenik je PROSAO" << endl;
+    }
+    else {
+        cout << "Odluka: Ucenik NIJE PROSAO" << endl;
+    }
+
+    return 0;
+}
