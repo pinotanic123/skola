@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+double izracunajPotrosnju(double udaljenost, double masaPaketa) {
+    return udaljenost * 10 + masaPaketa * 2;
+}
+
+bool imaDovoljnoBaterije(double baterija, double potrosnja, double rezerva) {
+    return baterija >= potrosnja + rezerva;
+}
+
+void prikaziRezultat(bool mozeKrenuti) {
+    if (mozeKrenuti) {
+        cout << "Dron moze krenuti." << endl;
+    } else {
+        cout << "Dron nema dovoljno baterije." << endl;
+    }
+}
+
+int main() {
+    double udaljenost, masaPaketa, baterija;
+    double rezerva = 15;
+
+    cin >> udaljenost >> masaPaketa >> baterija;
+
+    double potrosnja = izracunajPotrosnju(udaljenost, masaPaketa);
+
+    cout << "Potrosnja: " << potrosnja << "%" << endl;
+
+    bool mozeKrenuti = imaDovoljnoBaterije(baterija, potrosnja, rezerva);
+    prikaziRezultat(mozeKrenuti);
+    return 0;
+}
