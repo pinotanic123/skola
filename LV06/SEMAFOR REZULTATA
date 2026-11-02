@@ -1,0 +1,42 @@
+//ZADATAK 1 – SEMAFOR REZULTATA
+#include <iostream>
+using namespace std;
+
+int ukupno(int a, int b, int c) {
+	return a + b + c;
+}
+
+bool prolazi(int a, int b, int c) {
+	int sum = ukupno(a, b, c);
+
+	if (sum >= 180 && a >= 40 && b >= 40 && c >= 40){
+		return true;
+}
+	return false;
+	
+}
+
+void ispisiRezultat(int ukupanBrojBodova, bool jeFinale) {
+	cout << ukupanBrojBodova << endl;
+	if (jeFinale) {
+		cout << "Finale" << endl;
+	}
+	else {
+		cout << "NE" << endl;
+	}
+}
+
+int main() {
+
+	int z1,z2, z3;
+
+	cout << " Unesi broj bodova ucenika za tri zadatka:" << endl;
+	cin >> z1 >> z2 >> z3;
+
+	int ostvareniBodovi = ukupno(z1, z2, z3);
+	bool ostvarenProlaz = prolazi(z1, z2, z3);
+	
+	ispisiRezultat(ostvareniBodovi, ostvarenProlaz);
+
+	return 0;
+}
