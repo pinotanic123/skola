@@ -12,7 +12,7 @@ int main() {
 
     double cijena = (ucenici * 9) + (osobe * 12.0);
 
-    if (osobe >= 5) {
+    if ((osobe + ucenici) >= 5) {
         cijena = cijena * 0.90;
     }
 
