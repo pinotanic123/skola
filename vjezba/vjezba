@@ -1,0 +1,22 @@
+
+using namespace std;
+
+int main() {
+    int ucenici, osobe;
+
+    cout << "Ucenici: ";
+    cin >> ucenici;
+
+    cout << "Ostalo: ";
+    cin >> osobe;
+
+    double cijena = (ucenici * 9) + (osobe * 12.0);
+
+    if (osobe >= 5) {
+        cijena = cijena * 0.90;
+    }
+
+    cout << "Ukupno: " << cijena << endl;
+
+    return 0;
+}
