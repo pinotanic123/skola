@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+
+void zrcalo(unsigned int n) {
+	cout << n % 10;
+
+	if (n < 10)
+		return;
+
+	zrcalo(n / 10);
+}
+
+int main() {
+	unsigned int n;
+	cin >> n;
+
+	zrcalo(n);
+	cout << '\n';
+
+	return 0;
+}
