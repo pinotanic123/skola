@@ -1,0 +1,12 @@
+Završna refleksija
+1. Za svaki zadatak navedi osnovni slučaj i način smanjivanja problema:
+	• Zadatak 1: Osnovni slučaj je n < 10 (jednoznamenkasti broj). Problem se smanjuje cjelobrojnim dijeljenjem s 10 (n / 10).
+	• Zadatak 2: Osnovni slučaj je i == a.size() (kraj vektora). Problem se smanjuje povećavanjem indeksa za jedan (i + 1).
+	• Zadatak 3: Osnovni slučajevi su n == 0 (vraća 1) i n < 0 (vraća 0). Problem se smanjuje oduzimanjem broja koraka od cilja (n - 1 i n - 2).
+2. U kojem zadatku se rezultat gradi pri povratku iz poziva, a u kojem se ispis događa prije sljedećeg poziva?
+	• Ispis se događa prije sljedećeg poziva u 1. zadatku (cout << n % 10; prije zrcalo(n / 10)).
+	• Rezultat se gradi pri povratku iz poziva u 2. i 3. zadatku, jer funkcija mora zbrojiti vrijednosti koje vrate podpozivi tek nakon što se oni izvrše.
+3. Zašto je naivna rekurzija u trećem zadatku sporija od prve dvije?
+	• Prva dva zadatka koriste linearnu rekurziju (svaki poziv stvara samo jedan novi poziv), dok treći zadatak koristi stablastu rekurziju (svaki poziv stvara dva nova poziva), što dovodi do eksponencijalnog grananja i višestrukog ponavljanja istih izračuna.
+4. Koji bi zadatak bilo najlakše riješiti iterativno? Obrazloži.
+	• Najlakše bi bilo riješiti 2. zadatak, jer se prolazak kroz vektor i brojanje pozitivnih brojeva svodi na jednu najjednostavniju for petlju, if (a[i] > 0) uvjet i varijablu brojača (brojac++).
