@@ -13,8 +13,8 @@
 
 https://ucarecdn.com/52c4742c-1cc3-4189-b883-b8e759a461db/
 
+                Rekurzivni pseudokod	   
 
-                                   Rekurzivni pseudokod	                                                Iterativni pseudokod
 preorder(root)
     if root is null
         return
@@ -25,12 +25,15 @@ preorder(root)
     if root is null
         return
 
+
+            Iterativni pseudokod
+
     treeStack = empty stack
     currNode = root
     prevNode = null
 
-    while treeStack is not empty or currNode is not null
-        if currNode is not null
+      whil  treeStack is not empty or currNode is not null
+         if currNode is not null
             process currNode.data
             treeStack.push(currNode)
             currNode = currNode.left
