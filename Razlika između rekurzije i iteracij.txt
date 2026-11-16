@@ -1,0 +1,39 @@
+												                Razlika između rekurzije i iteracije
+
+ U strukturama podataka i algoritmima, iteracija i rekurzija su dva temeljna pristupa rješavanju problema.
+ Postoje značajne razlike između rekurzije i iteracije u smislu misaonih procesa, pristupa implementaciji, tehnika analize, složenosti koda i performansi.
+ Rekurzija je prirodnija za algoritme poput binarnog pretraživanja, sortiranja spajanjem, brzog sortiranja i DFS-a, dok se sortiranje umetanjem, sortiranje hrpom i BFS učinkovito implementiraju iteracijom.
+ Iteracija se implementira pomoću petlje koja se sastoji od inicijalizacije, povećanja varijabli petlje, koda unutar tijela petlje i uvjeta završetka.
+ Rekurzija se implementira pomoću poziva funkcija i definira se u smislu broja podproblema, ulazne veličine podproblema, osnovnih slučajeva i dodatnih operacija.
+ U rekurzivnoj implementaciji, kompajler koristi stog poziva za pohranjivanje informacija o svakom pozivu funkcije kako bi pratio trenutno stanje.
+ Moguće je transformirati svaku rekurzivnu implementaciju u iterativnu implementaciju korištenjem stoga.
+ Rekurzija može biti sporija od iteracije jer svaki poziv funkcije dodaje opterećenje i koristi prostor na stogu poziva.
+ U iteraciji se beskonačna petlja može pojaviti zbog pogrešnog uvjeta završetka, dok se u rekurziji može dogoditi beskonačna rekurzija koja uzrokuje prelijevanje stoga.
+ Primarna metoda za analizu rekurzivnog koda je metoda rekurzijskog stabla ili Glavni teorem, dok se iterativni kod analizira brojanjem iteracija petlje.
+
+https://ucarecdn.com/52c4742c-1cc3-4189-b883-b8e759a461db/
+
+
+                                   Rekurzivni pseudokod	                                                Iterativni pseudokod
+preorder(root)
+    if root is null
+        return
+
+    process(root. Data)
+    preorder(root.left)
+    preorder(root.right)	iterativePreorder(root)
+    if root is null
+        return
+
+    treeStack = empty stack
+    currNode = root
+    prevNode = null
+
+    while treeStack is not empty or currNode is not null
+        if currNode is not null
+            process currNode.data
+            treeStack.push(currNode)
+            currNode = currNode.left
+        else
+            prevNode = treeStack.pop()
+            currNode = prevNode.right
