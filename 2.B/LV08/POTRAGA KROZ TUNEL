@@ -1,0 +1,27 @@
+#include<vector>
+#include <iostream>
+using namespace std;
+
+int brojPozitivnih(const vector<int>& a, int i){
+	if (i == static_cast<int>(a.size()))
+		return 0;
+
+	int trenutni = (a[i] > 0) ? 1 : 0;
+
+	return trenutni + brojPozitivnih(a, i + 1);
+
+}
+
+int main() {
+	int n;
+	cin >> n;
+
+	vector<int>a(n);
+
+	for (int i = 0; i < n;i++)
+		cin >> a[i];
+
+	cout << brojPozitivnih(a, 0) << '\n';
+
+	return 0;
+}
