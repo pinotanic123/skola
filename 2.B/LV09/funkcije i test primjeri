@@ -1,0 +1,15 @@
+1. Funkcija
+int najbolji(const vector<int>& rezultati)
+
+2. Funkcja
+int brojProlaznihIter(const vector<int>& rezultati, int p)
+
+vlastiti testovi
+ulaz
+5 50
+80 60 80 40 80
+
+izlaz 
+NAJBOLJI 80
+POZICIJA 1
+PROLAZ 4
