@@ -1,0 +1,67 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int brojProlaznihIter(const vector<int>& rezultati, int p) {
+    int broj = 0;
+
+    for (int i = 0; i < rezultati.size(); i++) {
+        if (rezultati[i] >= p) {
+            broj++;
+        }
+    }
+
+    return broj;
+}
+int brojProlaznihRek(const vector<int>& rezultati, int p, int indeks) {
+    if (indeks == rezultati.size()) {
+        return 0;
+    }
+    int doprinos = 0;
+
+    if (rezultati[indeks] >= p) {
+        doprinos = 1;
+    }
+    return doprinos + brojProlaznihRek(rezultati, p, indeks + 1);
+}
+int najbolji(const vector<int>& rezultati) {
+    int max = rezultati[0];
+    int pozicija = 1;
+
+    for (int i = 1; i < rezultati.size(); i++) {
+        if (rezultati[i] > max) {
+            max = rezultati[i];
+            pozicija = i + 1;
+        }
+    }
+
+    return pozicija;
+}
+
+int main() {
+    int n, p;
+    cin >> n >> p;
+
+    vector<int> rezultati(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> rezultati[i];
+    }
+
+    int pozicija = najbolji(rezultati);
+    int max = rezultati[pozicija - 1];
+
+    int iterativno = brojProlaznihIter(rezultati, p);
+    int rekurzivno = brojProlaznihRek(rezultati, p, 0);
+
+    if (iterativno != rekurzivno) {
+        cerr << "Greska: rezultati nisu jednaki!" << endl;
+    }
+
+    cout << "NAJBOLJI " << max << endl;
+    cout << "POZICIJA " << pozicija << endl;
+    cout << "PROLAZ " << iterativno << endl;
+
+    return 0;
+}
