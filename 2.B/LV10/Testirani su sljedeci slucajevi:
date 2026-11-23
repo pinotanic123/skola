@@ -1,0 +1,10 @@
+Testirani su sljedeci slucajevi:
+1. Vise prolaznih rezultata.
+2. Svi rezultati jednaki pragu.
+3. Nema prolaznih rezultata.
+4. Samo jedan rezultat koji prolazi.
+5. Jedan rezultat koji ne prolazi.
+
+Za veliki n odabrao sam iterativni postupak
+jer koristi O(1) dodatne memorije i ne riskira
+prekoračenje stoga zbog duboke rekurzije.
