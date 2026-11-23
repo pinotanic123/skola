@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int najbolji(const vector<int>& rezultati) {
+    int max = rezultati[0];
+    int pozicija = 1;
+
+    for (int i = 1; i < rezultati.size(); i++) {
+        if (rezultati[i] > max) {
+            max = rezultati[i];
+            pozicija = i + 1;
+        }
+    }
+
+    return pozicija;
+}
+
+int prolaz(const vector<int>& rezultati, int p) {
+    int broj = 0;
+
+    for (int rezultat : rezultati) {
+        if (rezultat >= p) {
+            broj++;
+        }
+    }
+
+    return broj;
+}
+
+int main() {
+    int n, p;
+    cin >> n >> p;
+
+    vector<int> rezultati(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> rezultati[i];
+    }
+
+    int pozicija = najbolji(rezultati);
+    int max = rezultati[pozicija - 1];
+    int brojProlaz = prolaz(rezultati, p);
+
+    cout << "NAJBOLJI " << max << endl;
+    cout << "POZICIJA " << pozicija << endl;
+    cout << "PROLAZ " << brojProlaz << endl;
+
+    return 0;
+}
